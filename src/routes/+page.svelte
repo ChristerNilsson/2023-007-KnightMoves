@@ -62,7 +62,7 @@
 		}
 	}
 
-	function noop() {}
+	const noop = () => {}
 </script>
 
 <!-- Make a black and white chess board with svg-->
@@ -70,7 +70,7 @@
 <!-- The queen and knight are placed on the board using the queen and knight variables -->
 
 <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-	<g>
+	<!-- <g> -->
 		{#each range(N*N) as index}
 				<rect
 					on:click = {() => click(index)}
@@ -79,13 +79,13 @@
 					y = {r(index) * 50}
 					width = 50
 					height = 50
-					fill = {((r(index) + c(index)) % 2) ? 'yellow' : 'brown'}
+					fill = {(r(index) + c(index)) % 2 ? 'yellow' : 'brown'}
 					/>
 		{/each}
 		{#if state==1}
 			<text 
-				x={c(queen) * 50 + 25}  
-				y={r(queen) * 50 + 35}  
+				x={c(queen) * 50 + 25}
+				y={r(queen) * 50 + 35}
 				font-size="50" 
 				fill="black" 
 				text-anchor="middle" 
@@ -141,5 +141,5 @@
 				fill-opacity="0"
 			/>
 		{/if}
-	</g>
+	<!-- </g> -->
 </svg>
